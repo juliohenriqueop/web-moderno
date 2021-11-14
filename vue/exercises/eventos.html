@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Eventos</title>
+  <link rel="stylesheet" href="/css/estilo.css">
+  <script src="/js/vue.min.js"></script>
+</head>
+
+<body class="exercicio">
+  <div id="app">
+    <p>{{ counter }}</p>
+    <p>
+      <button v-on:click="increment">+1</button>
+      <button @click="counter -= 2">-2</button>
+    </p>
+    <p @mousemove="updatePosition">
+      Posição: {{ position.x }}, {{ position.y }}.
+      <br>
+      <span @mousemove.stop>Mouse Move Stop</span>
+    </p>
+    <input type="text" @keyup.enter="handleEnterClick">
+  </div>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        counter: 0,
+        position: {
+          x: 0,
+          y: 0
+        }
+      },
+      methods: {
+        increment() {
+          this.counter++
+        },
+
+        updatePosition(event) {
+          this.position.x = event.clientX
+          this.position.y = event.clientY
+        },
+
+        handleEnterClick(event) {
+          alert(event.target.value)
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

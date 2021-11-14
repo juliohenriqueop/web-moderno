@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Componente</title>
+  <link rel="stylesheet" href="/css/estilo.css">
+  <script src="/js/vue.min.js"></script>
+</head>
+
+<body class="exercicio">
+  <div id="app">
+    <counter initial-value="100"></counter>
+    <counter initial-value="2000"></counter>
+  </div>
+  <script>
+    Vue.component('counter', {
+      props: ['initialValue'],
+
+      data: function() {
+        return {
+          value: this.initialValue
+        }
+      },
+
+      template: `
+        <div>
+          <p>{{ this.value }}</p>
+          <button @click="decrement">--</button>
+          <button @click="increment">++</button>
+        </div>
+      `,
+
+      methods: {
+        decrement() {
+          this.value--
+        },
+
+        increment() {
+          this.value++
+        }
+      }
+    })
+
+    new Vue({
+      el: '#app'
+    })
+  </script>
+</body>
+
+</html>

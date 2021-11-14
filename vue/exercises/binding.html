@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Binding</title>
+  <link rel="stylesheet" href="/css/estilo.css">
+  <script src="/js/vue.min.js"></script>
+</head>
+
+<body class="exercicio">
+  <div id="app">
+    <p>{{ link }}</p>
+    <p>
+      <a href="{{ link }}">???</a>
+    </p>
+    <p>
+      <a v-bind:href="link">Canal da Cod3r</a>
+    </p>
+    <p>
+      <a :href="link">Canal da Cod3r</a>
+    </p>
+    <p>
+      <input type="text" v-model="name">
+      <br>
+      <span>{{ name }}</span>
+    </p>
+  </div>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        name: 'Maria',
+        link: 'https://www.youtube.com/COD3RCURSOS'
+      },
+      watch: {
+        name(updatedName) {
+          console.log(updatedName)
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>
