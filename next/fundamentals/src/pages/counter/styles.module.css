@@ -1,0 +1,9 @@
+.counter {
+  background-color: darkslateblue;
+  height: 100%;
+}
+
+.buttons {
+  display: flex;
+  margin-top: 15px;
+}
