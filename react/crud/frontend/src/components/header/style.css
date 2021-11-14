@@ -1,0 +1,23 @@
+.header {
+  background-color: white;
+  padding: 0 15px;
+  overflow: hidden;
+  white-space: nowrap;
+  box-shadow: var(--shadow);
+  width: 100%;
+  height: 100%;
+}
+
+.header__title {
+  font-size: 1.8em;
+}
+
+.header__description {
+  font-size: 1em;
+}
+
+@media (max-width: 460px) {
+  .header__description {
+    font-size: 0.95em;
+  }
+}

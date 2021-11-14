@@ -1,0 +1,17 @@
+.users__loading {
+  height: 30vh;
+}
+
+.users__spinner {
+  font-size: 50px;
+  animation: roundingSpinner 1000ms infinite linear;
+}
+
+@keyframes roundingSpinner {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

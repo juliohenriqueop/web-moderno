@@ -1,0 +1,84 @@
+.app {
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #F5F5F5;
+
+  display: grid;
+  grid-template-columns: var(--aside-width) 1fr;
+  grid-template-rows: var(--header-height) 1fr var(--footer-height);
+
+  grid-template-areas: 
+    "app__logo app__content"
+    "app__menu app__content"
+    "app__menu app__footer";
+}
+
+.app__logo {
+  grid-area: app__logo;
+}
+
+.app__menu {
+  grid-area: app__menu;
+}
+
+.app__content {
+  grid-area: app__content;
+  min-height: calc(100vh - var(--footer-height));
+  height: 100%;
+}
+
+.app__footer {
+  grid-area: app__footer;
+}
+
+@media (max-width: 900px) {
+  .app {
+    height: 100%;
+
+    grid-template-columns: var(--aside-width) 1fr;
+    grid-template-rows: var(--header-height-medium) 1fr var(--footer-height);
+
+    grid-template-areas: 
+      "app__logo app__menu"
+      "app__content app__content"
+      "app__footer app__footer";
+  }
+
+  .app__content {
+    min-height: calc(
+      100vh
+      - var(--header-height-medium)
+      - var(--footer-height)
+    );
+  }
+}
+
+@media (max-width: 600px) {
+  .app {
+    height: 100%;
+    
+    grid-template-columns: 1fr;
+
+    grid-template-rows:
+      var(--logo-height-small)
+      var(--menu-height-small)
+      1fr
+      var(--footer-height);
+
+    grid-template-areas: 
+      "app__logo"
+      "app__menu"
+      "app__content"
+      "app__footer";
+  }
+
+  .app__content {
+    min-height: calc(
+      100vh
+      - var(--menu-height-small)
+      - var(--menu-height-small)
+      - var(--footer-height)
+    );
+  }
+}

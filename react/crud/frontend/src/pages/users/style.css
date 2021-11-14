@@ -1,0 +1,38 @@
+.users {
+  height: 100%;
+  overflow-y: scroll;
+  
+  display: grid;
+  grid-template-rows: var(--header-height) 1fr;
+
+  grid-template-areas:
+    "users__header"
+    "users__content";
+}
+
+.users__header {
+  grid-area: users__header;
+}
+
+.users__content {
+  grid-area: users__content;
+}
+
+.users__reload {
+  display: block;
+  width: 100%;
+}
+
+@media (max-width: 900px) {
+  .users {
+    overflow-y: unset;
+    grid-template-rows: var(--header-height) 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .users {
+    overflow-y: unset;
+    grid-template-rows: var(--header-small-height) 1fr;
+  }
+}

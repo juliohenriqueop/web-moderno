@@ -1,0 +1,22 @@
+.home {
+  display: grid;
+  grid-template-rows: var(--header-height) 1fr;
+
+  grid-template-areas:
+    "home__header"
+    "home__content";
+}
+
+.home__header {
+  grid-area: home__header;
+}
+
+.home__content {
+  grid-area: home__content;
+}
+
+@media (max-width: 600px) {
+  .home {
+    grid-template-rows: var(--header-small-height) 1fr;
+  }
+}

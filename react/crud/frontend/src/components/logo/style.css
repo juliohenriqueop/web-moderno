@@ -1,0 +1,32 @@
+.logo {
+  background-color: var(--bg-dark);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo__image {
+  padding: 0 15px;
+  object-fit: contain;
+}
+
+.logo,
+.logo__image {
+  height: 100%;
+  width: 100%;
+}
+
+@media (max-width: 600px) {
+  .logo__link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  .logo__image {
+    height: 50%;
+    width: 50%;
+  }
+}
