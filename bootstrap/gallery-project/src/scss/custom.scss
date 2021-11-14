@@ -1,0 +1,25 @@
+.jumbotron {
+  background-color: white;
+  margin: 0;
+
+  .jumbotron-heading {
+    font-weight: 300;
+  }
+}
+
+.btn:focus {
+  box-shadow: none !important;
+}
+
+.navbar-toggler:focus,
+.navbar-toggler:active {
+  outline: none;
+}
+
+.navbar-toggler:not(.collapsed) {
+  border: 1px solid gray !important;
+}
+
+main {
+  min-height: 125vh;
+}
