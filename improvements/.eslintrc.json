@@ -1,0 +1,42 @@
+{
+  "env": {
+    "es2020": true,
+    "browser": true,
+    "node": true
+  },
+  "settings": {
+    "react": {
+      "version": "latest"
+    }
+  },
+  "parserOptions": {
+    "parser": "@babel/eslint-parser",
+    "requireConfigFile": false,
+    "sourceType": "module",
+    "ecmaVersion": 2020,
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "babelOptions": {
+      "presets": [
+        "@babel/preset-react",
+        "@babel/preset-typescript"
+      ]
+    }
+  },
+  "plugins": [
+    "@babel",
+    "react",
+    "vue"
+  ],
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:vue/essential"
+  ],
+  "rules": {
+    "no-unused-vars": 0,
+    "no-undef": 0,
+    "react/prop-types": 0
+  }
+}
