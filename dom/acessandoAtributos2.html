@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset='UTF-8'>
+  <title>Acessando Atributos #02</title>
+  <link rel='stylesheet' href='css/estilo.css'>
+</head>
+
+<body class='conteudo exercicio'>
+  <div>
+    <label for="compras">Compras</label>
+    <ul id="compras" destino='escritório' data-urgencia="5">
+      <li>Café</li>
+      <li>Água</li>
+      <li>Copo Descartável</li>
+    </ul>
+  </div>
+  <script>
+    const list = document.querySelector('div ul[destino="escritório"]')
+    console.log('ul element...')
+    console.log('children:', list.children)
+    console.log('destino:', list.destino)
+    console.log("getAttribute('destino'):", list.getAttribute('destino'))
+    console.log("hasAttribute('destino'):", list.hasAttribute('destino'))
+
+    list.setAttribute('destino', 'empresa')
+    console.log('destino:', list.getAttribute('destino'))
+
+    list.setAttribute('status', 'aberto')
+    console.log('status:', list.getAttribute('status'))
+
+    list.removeAttribute('destino')
+    console.log('destino:', list.getAttribute('destino'))
+
+    console.log('dataset.urgencia:', list.dataset.urgencia)
+
+    list.dataset.urgencia = 4
+    console.log('dataset.urgencia:', list.dataset.urgencia)
+
+    const label = document.querySelector('label')
+    console.log('for:', label.for)
+    console.log('htmlFor:', label.htmlFor)
+    console.log("getAttribute('for'):", label.getAttribute('for'))
+  </script>
+</body>
+
+</html>

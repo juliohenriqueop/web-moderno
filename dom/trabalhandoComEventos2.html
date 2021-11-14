@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset='UTF-8'>
+  <title>Trabalhando com Eventos #02</title>
+  <link rel='stylesheet' href='css/estilo.css'>
+</head>
+
+<body class="conteudo exercicio">
+  <div>Elemento</div>
+  <script>
+    const div = document.getElementsByTagName('div').item(0)
+
+    div.style.userSelect = 'none'
+    div.style.cursor = 'move'
+    div.style.position = 'absolute'
+
+    div.onmousemove = event => {
+      if (event.buttons === 1) {
+        div.style.left = `${event.clientX - event.target.clientWidth / 2}px`
+        div.style.top = `${event.clientY - event.target.clientHeight / 2}px`
+      }
+    }
+  </script>
+</body>

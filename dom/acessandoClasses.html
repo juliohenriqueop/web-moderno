@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset='UTF-8'>
+  <title>Acessando Classes</title>
+  <link rel='stylesheet' href='css/estilo.css'>
+</head>
+
+<body class='conteudo exercicio'>
+  <div>
+    Classes
+  </div>
+  <script>
+    const div = document.getElementsByTagName('div').item(0)
+
+    div.classList.add('destaque')
+    div.classList.remove('destaque')
+
+    div.classList.toggle('destaque')
+    console.log(div.classList.contains('destaque'))
+    console.log(div.classList.length)
+
+    div.classList.toggle('destaque')
+    console.log(div.classList.length)
+
+    div.classList.add('example1', 'example2')
+    console.log(div.classList.length)
+
+    for (let divClass of div.classList) {
+      console.log(divClass)
+    }
+
+    div.classList.forEach(divClass => console.log(divClass))
+
+    div.classList.remove('example1', 'example2')
+    console.log(div.classList.length)
+  </script>
+</body>
+
+</html>
