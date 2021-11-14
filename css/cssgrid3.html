@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>CSS Grid #03</title>
+  <link rel="stylesheet" href="css/tag.css">
+  <style>
+    * {
+      padding: 0px;
+      margin: 0px;
+    }
+
+    header {
+      grid-area: header;
+    }
+
+    main {
+      grid-area: main;
+    }
+
+    nav {
+      grid-area: nav;
+    }
+
+    footer {
+      grid-area: footer;
+    }
+
+    body {
+      display: grid;
+      width: 100vw;
+      height: 100vh;
+      grid-template-rows: 80px 1fr 80px;
+      grid-template-columns: 350px 1fr;
+      grid-template-areas: 'header header''nav main''footer footer';
+    }
+
+    @media (max-width: 700px) {
+      body {
+        grid-template-rows: 80px 80px 1fr 80px;
+        grid-template-columns: 100vw;
+        grid-template-areas: 'header''nav''main''footer';
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="tag">CONTEÚDO</main>
+  <header class="tag">CABEÇALHO</header>
+  <footer class="tag">RODAPÉ</footer>
+  <nav class="tag">NAVEGAÇÃO</nav>
+
+  <script src="js/tag.js"></script>
+</body>
+
+</html>
