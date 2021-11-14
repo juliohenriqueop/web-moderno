@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset='UTF-8'>
+  <title>XMLHttpRequest #01</title>
+  <link rel='stylesheet' href='css/estilo.css'>
+</head>
+
+<body class="conteudo exercicio">
+  <h1>Estados</h1>
+
+  <script>
+    function request(config) {
+      const xhr = new XMLHttpRequest()
+      xhr.open(config.method, config.url, true)
+
+      xhr.onload = event => {
+        if (xhr.status === 200) {
+          config.success(xhr.response)
+        } else if (xhr.status >= 400) {
+          config.error({
+            code: xhr.status,
+            text: xhr.statusText
+          })
+        }
+      }
+
+      xhr.send()
+    }
+
+    function createStatesTable(states) {
+      const tableItems = states.map(state => {
+        const idData = document.createElement('td')
+        idData.innerText = state.id
+
+        const nameData = document.createElement('td')
+        nameData.innerText = state.nome
+
+        const abbreviationData = document.createElement('td')
+        abbreviationData.innerText = state.sigla
+
+        const stateRow = document.createElement('tr')
+        stateRow.appendChild(idData)
+        stateRow.appendChild(nameData)
+        stateRow.appendChild(abbreviationData)
+
+        return stateRow
+      })
+
+      const stateTable = document.createElement('table')
+      tableItems.forEach(item => stateTable.appendChild(item))
+
+      document.body.appendChild(stateTable)
+    }
+
+    request({
+      method: 'GET',
+      url: 'dados/estados.json',
+
+      success: response => {
+        const states = JSON.parse(response)
+        createStatesTable(states)
+      },
+
+      error: err => {
+        const errorMessage = document.createTextNode(`Error: ${err.code} - ${err.text}.`)
+        document.body.appendChild(errorMessage)
+      }
+    })
+  </script>
+</body>

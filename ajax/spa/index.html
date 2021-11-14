@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset='UTF-8'>
+  <title>Mini SPA</title>
+  <link rel='stylesheet' href='../css/estilo.css'>
+  <style>
+    nav {
+      font-size: 2em;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #FFF;
+      padding: 0 10px;
+    }
+  </style>
+</head>
+
+<body class="conteudo">
+  <nav>
+    <a href wm-link="series.html" wm-destino=".pagina">Séries</a> |
+    <a href wm-link="linguagens.html" wm-destino=".pagina">Linguagens</a>
+  </nav>
+  <div class="pagina"></div>
+  <script>
+    async function switchPage(url, selector, updateHistory = true) {
+      if (!url || !selector)
+        return
+
+      const targetElement = document.querySelector(selector)
+
+      const response = await fetch(url)
+      const html = await response.text()
+
+      targetElement.innerHTML = html
+
+      if (updateHistory) {
+        history.pushState({
+          selector
+        }, null, url)
+      }
+    }
+
+    document.querySelectorAll('[wm-link]').forEach(element => {
+      const link = element.attributes['wm-link'].value
+      const target = element.attributes['wm-destino'].value
+
+      element.addEventListener('click', event => {
+        event.preventDefault()
+        switchPage(link, target)
+      })
+    })
+
+    window.addEventListener('popstate', event => {
+      if (event.state) {
+        const browserURL = window.location.href
+        const target = event.state.selector
+
+        switchPage(browserURL, target, false)
+      }
+    })
+  </script>
+</body>

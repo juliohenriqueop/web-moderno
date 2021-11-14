@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset='UTF-8'>
+  <title>XMLHttpRequest #02</title>
+  <link rel='stylesheet' href='css/estilo.css'>
+  <style>
+    input[type=file] {
+      display: flex;
+      margin: 10px;
+      padding: 40px;
+      font-size: 40px;
+      background: crimson;
+      border-radius: 20px;
+    }
+  </style>
+</head>
+
+<body class="conteudo exercicio">
+  <input type="file" name="arquivo" />
+  <div class="progresso"></div>
+
+  <script>
+    function upload(config) {
+      const xhr = new XMLHttpRequest()
+
+      if (xhr.upload) {
+        xhr.upload.onprogress = event => {
+          const done = event.loaded
+          const total = event.total
+
+          const percentage = Math.floor(done / total * 100)
+          config.onUpdate({
+            done,
+            total,
+            percentage
+          })
+        }
+      }
+
+      xhr.open('POST', config.url, true)
+      xhr.send(config.content)
+    }
+
+    document.querySelector('input[type=file]').addEventListener('change', event => {
+      const formData = new FormData()
+      const fileInput = event.target
+
+      formData.append(fileInput.name, fileInput.files.item(0))
+
+      const progress = document.getElementsByClassName('progresso').item(0)
+
+      upload({
+        url: 'upload',
+        content: formData,
+
+        onUpdate: state => {
+          progress.innerText = `${state.percentage}%`
+        }
+      })
+    })
+  </script>
+</body>
