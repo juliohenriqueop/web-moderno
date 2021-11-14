@@ -1,0 +1,1 @@
+this.hello_world = 'Hello World !'
