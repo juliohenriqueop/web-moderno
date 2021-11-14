@@ -1,0 +1,28 @@
+.header {
+  display: flex;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  z-index: 2;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: black;
+}
+
+.image {
+  max-height: 32px;
+}
+
+.title {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.icon {
+  margin-right: 5px;
+}

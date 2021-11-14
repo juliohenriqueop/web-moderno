@@ -1,0 +1,37 @@
+form {
+  display: flex;
+  justify-content: space-between;
+}
+
+mat-form-field {
+  margin-top: 10px;
+  width: 100%;
+}
+
+.field__name {
+  margin-right: 10px;
+}
+
+.field__price {
+  margin-left: 10px;
+}
+
+.button__group {
+  width: 100%;
+  margin-top: 20px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.button__create {
+  margin-right: 5px;
+}
+
+.button__cancel {
+  margin-left: 5px;
+}
+
+.button__create,
+.button__cancel {
+  width: 100px;
+}

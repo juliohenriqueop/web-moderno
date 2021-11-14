@@ -1,0 +1,39 @@
+.field-search {
+  width: 100%;
+}
+
+.link {
+  text-decoration: none;
+}
+
+.icon {
+  border-radius: 5px;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+}
+
+.icon.edit {
+  border: 1px solid var(--material-blue);
+  color: var(--material-blue);
+  margin-right: 5px;
+}
+
+.icon.edit:hover {
+  background-color: var(--material-blue);
+  color: white;
+}
+
+.icon.delete {
+  border: 1px solid var(--material-red);
+  color: var(--material-red);
+  margin-left: 5px;
+}
+
+.icon.delete:hover {
+  background-color: var(--material-red);
+  color: white;
+}

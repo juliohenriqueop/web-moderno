@@ -1,0 +1,19 @@
+.footer {
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.text {
+  font-weight: 300;
+  font-size: 1.1rem;
+}
+
+.bold {
+  font-weight: 500;
+}
+
+.icon {
+  vertical-align: middle;
+}

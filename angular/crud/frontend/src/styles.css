@@ -1,0 +1,21 @@
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+:root {
+  --material-blue: #3F51B5;
+  --material-red: #F44336;
+}
+
+.color-red {
+  color: rgb(227, 94, 107);
+}
+
+.notification-success {
+  background-color: #28A745;
+  color: white;
+}
+
+.notification-failure {
+  background-color: #E35E6B;
+  color: white;
+}

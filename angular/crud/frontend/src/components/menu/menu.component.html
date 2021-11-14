@@ -1,0 +1,15 @@
+<mat-sidenav-container class="menu">
+  <mat-sidenav class="navigation" mode="side" opened fixedInViewport>
+    <mat-nav-list class="margin">
+      <a class="link" routerLink="/" mat-list-item>
+        <i class="icon material-icons" appIcon>home</i>Início
+      </a>
+      <a class="link" routerLink="/products" mat-list-item>
+        <i class="icon material-icons" appIcon>storefront</i>Produtos
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content class="content margin">
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,21 @@
+.margin {
+  margin-top: 64px;
+}
+
+.navigation {
+  background-color: #3F51B5;
+  width: 200px;
+}
+
+.link {
+  color: white;
+}
+
+.icon {
+  margin-right: 25px;
+}
+
+.content {
+  padding: 16px;
+  background-color: white;
+}

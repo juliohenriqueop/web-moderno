@@ -1,0 +1,19 @@
+<mat-card>
+  <mat-card-title>{{ title }}</mat-card-title>
+  <form>
+    <mat-form-field class="field__name">
+      <input type="text" name="name" placeholder="Nome" [(ngModel)]="product.name" disabled="{{ disableNameField }}" matInput>
+    </mat-form-field>
+    <mat-form-field class="field__price">
+      <input type="text" name="price" placeholder="Preço (R$)" [(ngModel)]="product.price" disabled="{{ disablePriceField }}" matInput>
+    </mat-form-field>
+  </form>
+  <div class="button__group">
+    <button class="button__create" color="primary" (click)="handleActionButtonClick()" mat-raised-button>
+      {{ actionButtonTitle }}
+    </button>
+    <button class="button__cancel" color="warn" (click)="handleCancelButtonClick()" mat-raised-button>
+      Cancelar
+    </button>
+  </div>
+</mat-card>
