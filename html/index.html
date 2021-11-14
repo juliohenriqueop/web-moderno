@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <title>Curso Web Moderno</title>
+  <style>
+    [wm-content] {
+      padding: 30px 0px;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Curso Web Moderno</h1>
+    <h2>Exercícios</h2>
+  </header>
+  <nav>
+    <a href="exercicios/working.html">Está funcionando ?</a> |
+    <a href="exercicios/text_tags.html">Tags de texto</a> |
+    <a href="exercicios/other_text_tags.html">Outras tags</a> |
+    <a href="exercicios/lists.html">Listas</a> |
+    <a href="exercicios/nested_lists.html">Listas aninhadas</a> |
+    <a href="exercicios/links.html">Links</a> |
+    <a href="exercicios/tables.html">Tabelas</a> |
+    <a href="exercicios/forms/index.html">Formulários</a> |
+    <a href="exercicios/imagens.html">Imagens</a> |
+    <a href="exercicios/video.html">Videos</a> |
+    <a href="exercicios/structural_tags.html">Tags estruturais</a>
+  </nav>
+  <section wm-content></section>
+  <script>
+    const content = document.querySelector('[wm-content]')
+    const links = document.querySelectorAll('a')
+
+    links.forEach(link => {
+      link.onclick = function(event) {
+        event.preventDefault()
+
+        fetch(link.href)
+          .then(res => res.text())
+          .then(html => content.innerHTML = html)
+      }
+    })
+  </script>
+</body>
+
+</html>

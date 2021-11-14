@@ -1,0 +1,11 @@
+h1 {
+    font-size: 28px;
+}
+
+#hello {
+    font-weight: bold;
+}
+
+.grey-text {
+    color: gray;
+}

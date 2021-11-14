@@ -1,0 +1,59 @@
+<form>
+  <span>Registro:</span>
+  <input type="text" name="name" />
+  <input type="password" name="password">
+  <textarea name="description" cols="30" rows="10"></textarea>
+  <div>
+    <input type="radio" name="role" value="Administrador"> Administrador
+    <input type="radio" name="role" value="Aluno" checked> Aluno
+    <input type="radio" name="role" value="Professor"> Professor
+  </div>
+  <span>Tecnologias:</span>
+  <select name="techs" multiple required>
+    <option value="react">React</option>
+    <option value="react-native">React Native</option>
+    <option value="angular">Angular</option>
+    <option value="vue">Vue</option>
+    <option value="node">Node</option>
+  </select>
+  <select name="state">
+    <option value="none" selected disabled>Estado</option>
+    <option value="sp">São Paulo</option>
+    <option value="rj">Rio de Janeiro</option>
+    <option value="go">Goiás</option>
+  </select>
+  <input type="checkbox" name="remember" value="on"> Lembre-se de mim
+  <button formaction="http://www.localhost:3003/users" formmethod="POST">Criar conta</button>
+  <button formaction="http://www.localhost:3003/users" formmethod="GET">Obter dados</button>
+</form>
+<style>
+  input {
+    display: block;
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+
+  input[type="radio"] {
+    display: inline;
+  }
+
+  input[type="checkbox"] {
+    display: inline;
+  }
+
+  textarea {
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  select {
+    display: block;
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+
+  button {
+    display: block;
+    margin-bottom: 5px;
+  }
+</style>

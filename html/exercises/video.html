@@ -1,0 +1,92 @@
+<video id="sintel" width="854px" height="480px" controlsList="nodownload" autoplay autostart>
+  <source src="http://peach.themazzone.com/durian/movies/sintel-1280-surround.mp4" type="video/mp4">
+</video>
+<div id="controls">
+  <div id="play">
+    <svg>
+      <polygon points="0 0 20 10 0 20" />
+    </svg>
+  </div>
+  <div id="bar">
+    <div id="progress"></div>
+  </div>
+</div>
+<style>
+  #sintel {
+    background-color: black;
+  }
+
+  #controls {
+    width: 854px;
+    height: 30px;
+    background-color: black;
+  }
+
+  #play {
+    display: inline;
+    padding-left: 15px;
+  }
+
+  #play svg {
+    width: 20px;
+    height: 20px;
+    stroke: white;
+    stroke-width: 2px;
+    cursor: pointer;
+  }
+
+  #bar {
+    float: right;
+    margin-top: 8px;
+    margin-right: 30px;
+    width: 765px;
+    height: 5px;
+    background-color: rgb(75, 75, 75);
+  }
+
+  #progress {
+    left: 50px;
+    width: 0px;
+    height: 5px;
+    background-color: white
+  }
+
+  #bar,
+  #progress {
+    border-radius: 2px 2px 2px 2px;
+  }
+</style>
+<script>
+  const video = document.getElementById('sintel')
+  const play = document.getElementById('play')
+  const progress = document.getElementById('progress')
+
+  let interval = null
+
+  function updateVideoProgress() {
+    progress.style.width = `${(video.currentTime / video.duration) * 100}%`
+  }
+
+  function handlePlay() {
+    interval = setInterval(updateVideoProgress, 1000)
+  }
+
+  function handlePause() {
+    clearInterval(interval)
+  }
+
+  function toggleVideoState() {
+    if (video.paused) {
+      video.play()
+    } else {
+      video.pause()
+    }
+  }
+
+  play.addEventListener('click', toggleVideoState)
+
+  video.addEventListener('playing', handlePlay)
+  video.addEventListener('paused', handlePause)
+  video.addEventListener('waiting', handlePause)
+  video.addEventListener('seeked', updateVideoProgress)
+</script>

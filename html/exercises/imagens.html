@@ -1,0 +1,107 @@
+<div>
+  <div wm-slider>
+    <div wm-content>
+      <img id="rocks" src="http://files.cod3r.com.br/curso-web/imagem1.jpg" alt="Muro dá cidade" title="Muro dá Cidade - Tarso Bessa" width="513px" height="342px">
+
+      <img id="opening" src="http://files.cod3r.com.br/curso-web/imagem2.gif" alt="Introdução Coder" width="513px" height="342px">
+
+      <div id="city"></div>
+
+      <img id="rio" src="http://files.cod3r.com.br/curso-web/imagem3.png" alt="Rio de Janeiro" width="513px" height="342px">
+
+      <img id="rocks-loop" src="http://files.cod3r.com.br/curso-web/imagem1.jpg" alt="Muro dá cidade" title="Muro dá Cidade - Tarso Bessa" width="513px" height="342px">
+    </div>
+  </div>
+
+  <div class="user-info">
+    <img id="avatar" src="http://files.cod3r.com.br/curso-web/avatar.jpg" alt="Avatar do usuário" height="50">
+
+    <p id="description">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sed dolor laoreet,
+      posuere lorem et, hendrerit neque. Aliquam tincidunt lacus lectus,
+      quis egestas arcu lobortis quis. Aliquam vehicula mauris sit amet finibus euismod.
+      Duis fringilla, ligula ut mattis sodales, magna eros porta metus,
+      maximus aliquam neque leo eget sapien. Nam porttitor ullamcorper scelerisque.
+      Donec porta tincidunt dui id vulputate. Sed sodales nulla odio,
+      id malesuada enim condimentum eget. Nullam venenatis nisl et velit rhoncus maximus.
+      Mauris et erat in mi suscipit porta. Phasellus quis nisi dolor.
+      Integer iaculis nec ex eget rhoncus. Donec at turpis ut neque aliquet fringilla.
+    </p>
+  </div>
+
+  <div>
+    <picture>
+      <source srcset="http://files.cod3r.com.br/curso-web/logo-larga.png" media="(min-width: 600px)">
+      <img src="http://files.cod3r.com.br/curso-web/logo-estreita.png">
+    </picture>
+  </div>
+</div>
+<style>
+  [wm-slider] {
+    position: relative;
+    overflow: hidden;
+    user-select: none;
+    left: 10px;
+    width: 513px;
+    height: 342px;
+    border: 1px solid black;
+  }
+
+  [wm-slider] [wm-content] {
+    position: absolute;
+  }
+
+  [wm-slider] [wm-content] * {
+    position: absolute;
+  }
+
+  [wm-slider] [wm-content] #rocks {
+    left: 0px;
+  }
+
+  [wm-slider] [wm-content] #opening {
+    left: 513px;
+  }
+
+  [wm-slider] [wm-content] #city {
+    left: 1026px;
+    width: 513px;
+    height: 342px;
+    background-image: url('http://files.cod3r.com.br/curso-web/imagem4.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 200%;
+  }
+
+  [wm-slider] [wm-content] #rio {
+    left: 1539px;
+  }
+
+  [wm-slider] [wm-content] #rocks-loop {
+    left: 2052px;
+  }
+
+  .user-info #avatar {
+    float: left;
+    border-radius: 5px;
+    margin-right: 5px;
+  }
+
+  .user-info #description {
+    width: 600px;
+  }
+</style>
+<script>
+  const content = document.querySelector('[wm-slider] [wm-content]')
+
+  const ending_position = -2052
+  let content_position = 0
+
+  setInterval(() => {
+    content.style.left = `${content_position--}px`
+
+    if (content_position <= ending_position) {
+      content_position = 0
+    }
+  }, 10)
+</script>

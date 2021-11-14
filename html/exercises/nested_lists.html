@@ -1,0 +1,55 @@
+<link rel="stylesheet" href="http://files.cod3r.com.br/curso-web/tree.css">
+<h3>Projeto</h3>
+<ul class="tree">
+  <li>
+    <span>backend</span>
+    <br />
+    <ul wm-folder>
+      <li>
+        <span>app</span>
+        <br />
+        <ul wm-folder>
+          <li>product.js</li>
+          <li>user.js</li>
+          <li>sales.js</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <span>frontend</span>
+    <br />
+    <ul wm-folder>
+      <li>style.css</li>
+      <li>app.js</li>
+      <li>index.html</li>
+    </ul>
+  </li>
+</ul>
+<style>
+  span,
+  ul,
+  li {
+    user-select: none;
+  }
+
+  span:hover {
+    cursor: pointer;
+  }
+</style>
+<script>
+  const spans = document.querySelectorAll('span')
+  const folders = document.querySelectorAll('[wm-folder]')
+
+  spans.forEach((span, index) => {
+    span.addEventListener('click', event => {
+      const folder = folders[index]
+
+      if (folder.style.display === 'none') {
+        folder.style.display = 'block'
+      } else {
+        folder.style.display = 'none'
+      }
+    })
+  })
+</script>
