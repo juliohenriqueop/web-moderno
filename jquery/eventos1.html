@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset='UTF-8'>
+  <title>Eventos #01</title>
+  <link rel='stylesheet' href='css/estilo.css'>
+  <script src='js/jquery.js'></script>
+  <style>
+    input {
+      font-size: 2em;
+    }
+  </style>
+</head>
+
+<body class='conteudo exercicio'>
+  <h1>Eventos #01</h1>
+  <div id='posicao'></div>
+  <div id='cliques'>Cliques: 0</div>
+  <input type="text" placeholder="Cor de Background">
+
+  <script>
+    function updateMousePositionDiv(event) {
+      $('#posicao').text(`Posição do mouse - X: ${event.clientX}, Y: ${event.clientY}.`)
+    }
+
+    $('body').on('mousemove', updateMousePositionDiv)
+
+    $('#posicao').mouseover(() => {
+      $('body').off('mousemove', updateMousePositionDiv)
+    })
+
+    $('#posicao').mouseleave(() => {
+      $('body').mousemove(updateMousePositionDiv)
+    })
+
+    let clickCount = 0
+    $('body').click(() => {
+      $('#cliques').text(`Cliques: ${++clickCount}`)
+    })
+
+    const defaultBackgroundColor = $('body').css('background-color')
+
+    $('input[type="text"]').keyup(event => {
+      const input = event.target
+      const newBackgroundColorString = $(input).val()
+
+      if (newBackgroundColorString.match(/#[\da-fA-F]{6}/))
+        $('body').css('background-color', newBackgroundColorString)
+      else
+        $('body').css('background-color', defaultBackgroundColor)
+    })
+  </script>
+</body>

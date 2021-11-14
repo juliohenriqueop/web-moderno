@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset='UTF-8'>
+  <title>Manipulando Atributos</title>
+  <link rel='stylesheet' href='css/estilo.css'>
+  <script src='js/jquery.js'></script>
+  <style>
+    [wm-relogio] {
+      text-align: center;
+    }
+
+    [wm-relogio] button {
+      font-size: 1.6em;
+      padding: 0px 25px;
+      margin: 10px;
+    }
+  </style>
+</head>
+
+<body class='conteudo exercicio'>
+  <h1>Manipulando Atributos</h1>
+  <div wm-relogio='1000'></div>
+  <script>
+    function Timer(element) {
+      const time = $('<p>').text('00:00')
+
+      const speedDownButton = $('<button>').text('-')
+      const speedUpButton = $('<button>').text('+')
+
+      const $element = $(element)
+      $element.append(time, speedDownButton, speedUpButton)
+
+      const getCurrentInterval = () => parseInt($element.attr('wm-relogio'))
+
+      let timer = null
+
+      const start = () => {
+        if (timer) clearInterval(timer)
+
+        timer = setInterval(() => {
+          const dateString = new Date().toLocaleTimeString('pt-BR')
+          time.text(dateString)
+        }, getCurrentInterval())
+      }
+
+      const changeInterval = delta => {
+        const newInterval = Math.max(getCurrentInterval() + delta, 1000)
+        $element.attr('wm-relogio', newInterval)
+
+        start()
+      }
+
+      speedDownButton.on('click', () => changeInterval(1000))
+      speedUpButton.on('click', () => changeInterval(-1000))
+
+      start()
+    }
+
+
+    $('[wm-relogio]').each((index, element) => new Timer(element))
+
+    $('[wm-relogio]').attr({
+      'attr1': 1,
+      'attr2': 2
+    })
+    $('[wm-relogio]').removeAttr('attr1')
+  </script>
+</body>

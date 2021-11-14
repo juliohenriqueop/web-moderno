@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset='UTF-8'>
+  <title>Animação #02</title>
+  <link rel='stylesheet' href='css/estilo.css'>
+  <script src='js/jquery.js'></script>
+  <style>
+    body {
+      position: relative;
+      background-color: #999;
+      color: #000;
+    }
+
+    div {
+      position: absolute;
+      display: inline;
+      border: solid 10px #000;
+      padding: 50px;
+      font-size: 3em;
+      background-color: crimson;
+    }
+  </style>
+</head>
+
+<body>
+  <div>Animar!</div>
+
+  <script>
+    function animateWidth(deltaWidth, duration) {
+      const animation = {
+        width: `+=${deltaWidth}`
+      }
+
+      return new Promise((resolve, reject) => {
+        $('div').animate(animation, duration, resolve)
+      })
+    }
+
+    function animateDiagonalPosition(deltaPosition, duration) {
+      const animation = {
+        top: `+=${deltaPosition}`,
+        left: `+=${deltaPosition}`
+      }
+
+      return new Promise((resolve, reject) => {
+        $('div').animate(animation, duration, resolve)
+      })
+    }
+
+    function animateRotation(deltaRotation, duration) {
+      const animation = {
+        transform: `+=${deltaRotation}`
+      }
+
+      const animationOptions = {
+        step: function(currentRotation) {
+          $(this).css('transform', `rotate(${currentRotation}deg)`)
+        },
+
+        duration: duration,
+      }
+
+      return new Promise((resolve, reject) => {
+        $('div').animate(animation, animationOptions, 'linear', resolve)
+      })
+    }
+
+    animateWidth(300, 100)
+      .then(animateWidth(-300, 'slow'))
+      .then(animateDiagonalPosition(300, 600))
+      .then(animateRotation(3300, 3000))
+  </script>
+</body>

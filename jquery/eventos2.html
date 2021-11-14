@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset='UTF-8'>
+  <title>Eventos #02</title>
+  <link rel='stylesheet' href='css/estilo.css'>
+  <script src='js/jquery.js'></script>
+  <style>
+    input {
+      font-size: 2em;
+    }
+  </style>
+</head>
+
+<body class='conteudo exercicio'>
+  <h1>Eventos #02</h1>
+  <div id='div1'>1</div>
+  <div id="resultado1">?</div>
+  <br>
+  <input type="text" placeholder="Digite e Selecione">
+  <div id="resultado2">?</div>
+  <script>
+    $('#div1').hover(
+      () => $('#div1').addClass('destaque'),
+      () => $('#div1').removeClass('destaque')
+    )
+
+    $('#div1').on('mouseenter mouseleave', () => console.log('Enter & Leave'))
+
+    $('#div1').one('mouseenter', () => alert('Evento Unico !'))
+
+    $('#div1').dblclick(() => $('#div1').fadeOut(1000).fadeIn(1000))
+
+    $(window).resize(() => {
+      const windowWidth = $(window).width()
+      const windowHeight = $(window).height()
+
+      $('#resultado1').text(`Tamanho dá janela: ${windowWidth}x${windowHeight}`)
+    })
+
+    $(':input').select(event => {
+      const input = event.target
+
+      const selectionStart = input.selectionStart
+      const selectionEnd = input.selectionEnd
+
+      $('#resultado2').text(`Seleção: ${input.value.substring(selectionStart, selectionEnd)}`)
+    })
+  </script>
+</body>
