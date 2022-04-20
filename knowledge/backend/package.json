@@ -14,7 +14,8 @@
     "migrate:dev": "npm run knex:dev migrate:latest",
     "migrate": "npm run knex migrate:latest",
     "seed:dev": "npm run knex:dev seed:run",
-    "seed": "npm run knex seed:run"
+    "seed": "npm run knex seed:run",
+    "heroku-postbuild": "npm run migrate"
   },
   "keywords": [],
   "author": "",
