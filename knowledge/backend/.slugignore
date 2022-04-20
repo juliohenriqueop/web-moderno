@@ -1,0 +1,4 @@
+# https://github.com/nekopanic/buildpack-slug-cleaner
+
+!package-lock.json
+!.slugignore
