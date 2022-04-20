@@ -1,0 +1,10 @@
+# https://github.com/nekopanic/buildpack-slug-cleaner
+
+!public
+!src
+!node_modules
+
+!babel.config.js
+!package-lock.json
+!vue.config.js
+!.slugignore
