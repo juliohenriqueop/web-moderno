@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "start": "nodemon -r dotenv/config",
-    "production": "pm2 start index.js --name knowledge-backend",
+    "production": "pm2 start src/index.js --name knowledge-backend",
     "knex:dev": "node -r dotenv/config ./node_modules/knex/bin/cli.js --knexfile=src/configuration/knexfile.js",
     "knex": "node ./node_modules/knex/bin/cli.js --knexfile=src/configuration/knexfile.js",
     "migrate:dev": "npm run knex:dev migrate:latest",
