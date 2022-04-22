@@ -12,7 +12,7 @@ module.exports = function(app) {
       name: request.body.name,
       email: request.credentials.email || request.body.email,
       password: request.credentials.password || request.body.password,
-      admin: false
+      admin: process.env.DEMO_MODE === 'true'
     }
   }
 

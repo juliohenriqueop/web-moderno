@@ -19,7 +19,7 @@ module.exports = function(app) {
         id: user.id,
         name: user.name,
         email: user.email,
-        admin: false
+        admin: process.env.DEMO_MODE === 'true'
       }
     }
 
