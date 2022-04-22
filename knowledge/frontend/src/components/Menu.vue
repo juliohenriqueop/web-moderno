@@ -131,7 +131,7 @@ export default {
   .menu {
     height: calc(100% - 60px);
     left: 0;
-    opacity: 95%;
+    opacity: 0.9;
     position: absolute;
     top: 60px;
     z-index: 4;
