@@ -8,7 +8,8 @@
   "scripts": {
     "start": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "heroku-prebuild": "npx browserslist@latest --update-db"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.4",
